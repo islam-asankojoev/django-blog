@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Новости{% endblock %}
+
+{% block content %}
+<div>
+{% include 'inc/_category.html' %}
+</div>
+{% for new in news %}
+
+<div class="card border border-dark mt-3 p-2">
+    <div class="row">
+        <div class="cont col-7 p-4">
+            <h3>{{ new.title }}</h3>
+            <p>{{ new.text|truncatewords:15 }}</p>
+            <p class="category d-inline">Категория: {{ new.category }}</p>
+            <a href="{{ new.get_absolute_url }}" class="btn btn-info">читать далее...</a>
+        </div>
+        <div class="col-5 ">
+            {% if new.image %}
+            <img class="rounded" src="{{ new.image.url }}" width="100%" alt="">
+            {% else %}
+
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}

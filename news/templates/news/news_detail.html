@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block title %}{{ object.title }}{% endblock %}
+
+{% block content %}
+<span></span>
+<div class=" dsd rounded">
+    <div class="con p-4">
+    <div class="con p-4">
+    <div class="con dsss p-4">
+
+        <h2 class="mb-4">{{ object.title }}</h2>
+        <div class="card p-2  d-inline mt-4" style="color:black;"><b>Опубликовано: {{ object.created_at }}</b></div>
+        <p class="mt-4">{{ object.text }}</p>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+<style>
+
+    body{
+        color:white;}
+    body{
+        background-image: url({{object.image.url}});
+        position:relative;
+        background-size:cover;
+        background-repeat:no-repeat;
+        background-color:grey;
+<!--        background-position:center center;-->
+<!--        position:relative;-->
+<!--        background-repeat:no-repeat;-->
+<!--        background-size:auto;-->
+    }
+    dsd{
+        background-color:rgba(0,0,0,0);
+    }
+    span{
+        z-index:-11;
+        position:fixed;
+        top:0;
+        left:0;
+        width:100vw;
+        height:100vh;
+        background-color:rgba(0, 0, 0, 0.8)
+    }
+    .con{
+        z-index:2;
+    }
+    .dsss{z-index:10!important;}
+    .navbar{
+    background-color:rgba(0,0,0,0.8)!important;
+
+    }
+    .navbar a{
+    color:white !important;
+    }
+</style>
+{% endblock %}

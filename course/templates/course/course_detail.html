@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% block title %}{{ object.title }}{% endblock %}
+
+{% block content %}
+<img src="https://site.groupe-psa.com/content/uploads/sites/9/2016/12/white-background-2.jpg" class="imgBlur" alt="">
+<div class="dsd rounded">
+    <span></span>
+    <div class="con p-lg-4 p-sm-4">
+        <div class="con p-lg-4">
+            <div class="con sss p-lg-4">
+                <div class="row">
+                    <div class="col-lg-6 col-sm-12">
+
+                        {% if object.image %}
+                        <img src="{{ object.image.url }}" width="100%" class="rounded" alt="">
+                        {% else %}
+                        {% endif %}
+                    </div>
+                    <div class="col-lg-6 col-sm-12">
+                        <h2 class="mb-lg-4 mt-4">{{ object.title }}</h2>
+                        <br class="d-sm-none">
+                    <div class=" alert alert-primary p-4  col-sm-12">
+                        <h4 class="d-inline p-lg-1 mt-lg-1">Цена: {{ object.price }}c</h4>
+                        <a href="#" class="btn float-right btn-primary d-inline ">Купить</a>
+                    </div>
+                        </div>
+                </div>
+
+                <!--        <div class="card p-2  d-inline " style="color:black;"><b>Опубликовано: {{ object.created_at }}</b></div>-->
+                <h5 class="mt-4">Краткое описание</h5>
+                <p class="mt-4 mb-4">{{ object.description }}</p>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<style>
+<!--    body{-->
+<!--    color:white;}-->
+
+<!--    span{-->
+<!--    z-index:-1;-->
+<!--    position:absolute;-->
+<!--    top:0;-->
+<!--    left:0;-->
+<!--    width:100%;-->
+<!--    height:100%;-->
+<!--    background-color:rgb(0, 0, 0, 0.7)-->
+<!--    }-->
+    .con{
+    z-index:2;
+    }
+    img{
+    animation-name:anime;
+    animation-duration:.3s;
+
+    }
+    @keyframes contentAnimate{
+    from{
+        filter:blur(5px);
+        z-index:1000;
+        opacity:1;
+    }
+    to{
+        filter:blur(10px);
+        z-index:-1;
+        opacity:0;
+    }
+    }
+
+    .imgBlur{
+    width:100%;
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:-1;
+    animation-name:contentAnimate;
+    animation-duration:2s;
+    }
+
+</style>
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block title %}Blog{% endblock %}
+
+{% block content %}
+<div>
+<h2 >Новости</h2>
+{% for new in news %}
+
+<div class="card border border-dark mt-3 p-2">
+    <div class="row">
+        <div class="cont col-7 p-4">
+            <h3>{{ new.title }}</h3>
+            <p>{{ new.text|truncatewords:15 }}</p>
+            <p class="category d-inline">Категория: {{ new.category }}</p>
+            <a href="{{ new.get_absolute_url }}" class="btn btn-info">читать далее...</a>
+        </div>
+        <div class="col-5 ">
+            {% if new.image %}
+            <img class="rounded" src="{{ new.image.url }}" width="100%" alt="">
+            {% else %}
+
+            {% endif %}
+        </div>
+    </div>
+
+</div>
+
+{% endfor %}
+ <a href="{% url 'all_news' %}" class="btn btn-primary mt-4">Все новости <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+</svg></a>
+</div>
+<div class="mt-4">
+<h2>Курсы обучения</h2>
+    <div class="row">
+{% for course in course %}
+<div class="col-lg-4 col-12">
+        <a href="{{ course.get_absolute_url }}">
+<div class="card shadow-none card-shadow" style="width: 21rem;">
+    {% if course.image %}
+  <img src="{{ course.image.url }}" class="card-img-top" alt="...">
+    {% else %}
+    Курсов по обучению пока что нет(
+    {% endif %}
+  <div class="card-body">
+    <h5 class="card-title">{{course.title}}</h5>
+    <p class="card-text">{{ course.description|truncatewords:15 }}</p>
+      <dev>
+          <p class="alert alert-primary d-inline">{{ course.price }}c</p>
+    <a href="{{ course.get_absolute_url }}" class="btn btn-primary btn-card d-inline">Записаться на курс</a>
+
+          </dev>
+  </div>
+</div>
+            </a>
+    </div>
+{% endfor %}
+        </div>
+</div>
+
+<style>
+    .btn-card{
+    padding:10px;
+    }
+    .card-shadow{
+    transition:.3s
+    }
+    .card-shadow:hover{
+        box-shadow: 0.5rem 0.5rem 3rem rgba(0,0,0,.25)!important;
+
+    }
+    .category{
+        border-bottom:2px solid #00ff00;
+    }
+    h5, p{
+    text-decoration:none;
+    color:black;
+    }
+    a:hover, h5:hover, p:hover{
+    text-decoration:none!important;
+    }
+</style>
+{% endblock %}
