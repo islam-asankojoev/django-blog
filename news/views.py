@@ -60,8 +60,13 @@ class CourseDetail(DetailView):
 
 
 
+
+
 class CourseList(ListView):
     model = Course
+    context_object_name = 'course'
+
+
 
 class NewsApi(ModelViewSet):
     queryset = News.objects.all()
