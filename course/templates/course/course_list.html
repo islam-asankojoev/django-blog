@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %}Курсы обучения{% endblock %}
+
+{% block content %}
+
+<div class="mt-4">
+<h2>Курсы обучения</h2>
+    <div class="row">
+{% for course in course %}
+<div class="col-lg-4 col-12">
+        <a href="{{ course.get_absolute_url }}">
+<div class="card shadow-none card-shadow" style="width: 21rem;">
+    {% if course.image %}
+  <img src="{{ course.image.url }}" class="card-img-top" alt="...">
+    {% else %}
+    Курсов по обучению пока что нет(
+    {% endif %}
+  <div class="card-body">
+    <h5 class="card-title">{{course.title}}</h5>
+    <p class="card-text">{{ course.description|truncatewords:15 }}</p>
+      <dev>
+          <p class="alert alert-primary d-inline">{{ course.price }}c</p>
+    <a href="{{ course.get_absolute_url }}" class="btn btn-primary btn-card d-inline">Записаться на курс</a>
+
+          </dev>
+  </div>
+</div>
+            </a>
+    </div>
+{% endfor %}
+        </div>
+</div>
+
+{% endblock %}

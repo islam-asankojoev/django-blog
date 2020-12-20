@@ -58,6 +58,11 @@ class NewsDetail(DetailView):
 class CourseDetail(DetailView):
     model = Course
 
+
+
+class CourseList(ListView):
+    model = Course
+
 class NewsApi(ModelViewSet):
     queryset = News.objects.all()
     serializer_class = NewsSerializer
