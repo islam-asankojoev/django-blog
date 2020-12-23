@@ -78,7 +78,8 @@ class CourseApi(ModelViewSet):
     serializer_class = CourseSerializer
 
 
-def all_api(request):
+def fucking(request):
+
     return render(request, 'news/api.html')
 
 
