@@ -37,6 +37,14 @@ class NewsAll(ListView):
         # parsing.delay()
         return context
 
+def fucking(request):
+    context = {
+        'asd': 'asd'
+    }
+
+    return render(request, 'news/api.html', context)
+
+
 def newsByCategory(request, title):
     category = Category.objects.get(title=title)
     categories = Category.objects.all()
@@ -78,9 +86,7 @@ class CourseApi(ModelViewSet):
     serializer_class = CourseSerializer
 
 
-def fucking(request):
 
-    return render(request, 'news/api.html')
 
 
 
