@@ -7,7 +7,6 @@ router = SimpleRouter()
 
 router.register('api/news', NewsApi)
 router.register('api/course', CourseApi)
-# router.register('api/news/<int:pk>', NewsApi)
 
 urlpatterns = [
     path('', NewsList.as_view(), name='home'),
