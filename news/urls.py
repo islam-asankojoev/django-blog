@@ -11,12 +11,12 @@ router.register('api/course', CourseApi)
 
 urlpatterns = [
     path('', NewsList.as_view(), name='home'),
+    path('all_api/', all_api, name="fucking"),
     path('news/<int:pk>', NewsDetail.as_view(), name='singlePost'),
     path('course/<int:pk>', CourseDetail.as_view(), name='singleCourse'),
     path('news', NewsAll.as_view(), name="all_news"),
     path('news/<str:title>', newsByCategory, name='newsByCategory'),
     path('course', CourseList.as_view(), name='courseAll'),
-    path('all_api/', all_api, name="api_all"),
 ]
 
 urlpatterns += router.urls
