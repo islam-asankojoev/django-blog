@@ -16,7 +16,7 @@ urlpatterns = [
     path('news', NewsAll.as_view(), name="all_news"),
     path('news/<str:title>', newsByCategory, name='newsByCategory'),
     path('course', CourseList.as_view(), name='courseAll'),
-    path('API', all_api, name="apiById"),
+    path('all_api/', all_api, name="apiById"),
 ]
 
 urlpatterns += router.urls
