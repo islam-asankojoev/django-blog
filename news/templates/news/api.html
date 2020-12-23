@@ -1,10 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block title %}API{% endblock %}
 
-</body>
-</html>
+{% block content %}
+
+<div>
+    <a href="{% url 'news-list' %}" class="btn btn-warning">API всех новостей</a>
+</div>
+<div class="mt-2">
+    <a href="{% url 'course-list' %}" class="btn btn-warning">API всех курсов</a>
+</div>
+<br>
+<h5>API конкретной записи в конце просто надо добавить id</h5>
+{% endblock %}

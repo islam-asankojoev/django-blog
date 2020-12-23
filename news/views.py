@@ -5,6 +5,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.viewsets import ModelViewSet
 
+from course.serializers import CourseSerializer
 from .models import News, Category
 from course.models import Course
 from .serializers import NewsSerializer
@@ -72,8 +73,13 @@ class NewsApi(ModelViewSet):
     queryset = News.objects.all()
     serializer_class = NewsSerializer
 
+class CourseApi(ModelViewSet):
+    queryset = Course.objects.all()
+    serializer_class = CourseSerializer
 
 
+def apis(request):
+    return render(request, 'news/api.html')
 
 
 

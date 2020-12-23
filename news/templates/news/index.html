@@ -14,6 +14,8 @@
             <p>{{ new.text|truncatewords:15 }}</p>
             <p class="category d-inline">Категория: {{ new.category }}</p>
             <a href="{{ new.get_absolute_url }}" class="btn btn-info">читать далее...</a>
+            <a href="{% url 'news-detail' new.pk %}" style="font-family:'Montserrat'; font-weight:600;" class="btn btn-warning d-inline p-2">API</a>
+
         </div>
         <div class="col-5 ">
             {% if new.image %}
@@ -45,12 +47,13 @@
     {% endif %}
   <div class="card-body">
     <h5 class="card-title">{{course.title}}</h5>
-    <p class="card-text">{{ course.description|truncatewords:15 }}</p>
-      <dev>
-          <p class="alert alert-primary d-inline">{{ course.price }}c</p>
+    <p class="card-text pb-4">{{ course.description|truncatewords:15 }}</p>
+      <div>
+          <p class="alert alert-primary d-inline p-2">{{ course.price }}c</p>
     <a href="{{ course.get_absolute_url }}" class="btn btn-primary btn-card d-inline">Записаться на курс</a>
+<a href="{% url 'course-detail' course.pk %}" style="font-family:'Montserrat'; font-weight:600;" class="btn btn-warning d-inline p-2">API</a>
+          </div>
 
-          </dev>
   </div>
 </div>
             </a>

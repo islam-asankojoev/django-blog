@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from .views import *
 from rest_framework.routers import SimpleRouter
 
@@ -6,6 +6,7 @@ from rest_framework.routers import SimpleRouter
 router = SimpleRouter()
 
 router.register('api/news', NewsApi)
+router.register('api/course', CourseApi)
 # router.register('api/news/<int:pk>', NewsApi)
 
 urlpatterns = [
@@ -16,6 +17,10 @@ urlpatterns = [
     path('news/<str:title>', newsByCategory, name='newsByCategory'),
     path('api/', NewsApi.as_view({'get': 'list'}), name='api'),
     path('course', CourseList.as_view(), name='courseAll'),
+    # path('api/', include(router.urls))
+    path('API/', apis, name='apis')
 ]
 
 urlpatterns += router.urls
+
+print(urlpatterns)
