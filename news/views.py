@@ -44,7 +44,7 @@ def newsByCategory(request, title):
     news = category.news.all()
 
 
-    print(len(news))
+
     context = {
                 'news': news,
                 'categories': categories,
@@ -78,7 +78,7 @@ class CourseApi(ModelViewSet):
     serializer_class = CourseSerializer
 
 
-def apis(request):
+def all_api(request):
     return render(request, 'news/api.html')
 
 
