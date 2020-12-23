@@ -27,6 +27,7 @@ class NewsList(ListView):
         # parsing.delay()
         return context
 
+
 class NewsAll(ListView):
     model = News
 
@@ -37,7 +38,8 @@ class NewsAll(ListView):
         # parsing.delay()
         return context
 
-def fucking(request):
+
+def fuckingShit(request):
     context = {
         'asd': 'asd'
     }
@@ -50,15 +52,13 @@ def newsByCategory(request, title):
     categories = Category.objects.all()
 
     news = category.news.all()
-
-
-
     context = {
                 'news': news,
                 'categories': categories,
                 'category': category
                }
     return render(request, 'news/newsByCategory.html', context)
+
 
 class NewsDetail(DetailView):
     model = News
@@ -68,18 +68,15 @@ class CourseDetail(DetailView):
     model = Course
 
 
-
-
-
 class CourseList(ListView):
     model = Course
     context_object_name = 'course'
 
 
-
 class NewsApi(ModelViewSet):
     queryset = News.objects.all()
     serializer_class = NewsSerializer
+
 
 class CourseApi(ModelViewSet):
     queryset = Course.objects.all()
@@ -89,6 +86,3 @@ class CourseApi(ModelViewSet):
 
 
 
-
-
-#     return render(request, 'news/news_detail.html', context={'object': new})
